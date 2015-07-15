@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="$dtSettlement.Broker">
+    <Property name="creationType">
+    	com.sfit.model.settlement.Broker
+    </Property>
+    <PropertyDef name="brokerID">
+      <Property name="dataType">String</Property>
+      <Property name="label">经纪公司代码</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerAbbr">
+      <Property name="dataType">String</Property>
+      <Property name="label">经纪公司简称</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerName">
+      <Property name="dataType">String</Property>
+      <Property name="label">经纪公司名称</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerType">
+      <Property name="dataType">String</Property>
+      <Property name="label">经纪公司类型</Property>
+    </PropertyDef>
+    <PropertyDef name="isActive">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">是否活跃</Property>
+    </PropertyDef>
+    <Reference name="brokerEx">
+      <Property name="parameter">$${this.brokerID}</Property>
+      <Property name="dataProvider">settlement.brokerPR#loadBrokerEx</Property>
+      <Property name="dataType">$dtSettlement.BrokerEx</Property>
+    </Reference>
+  </DataType>
+  <DataType name="$dtSettlement.BrokerEx">
+    <Property name="creationType">com.sfit.model.settlement.BrokerEx</Property>
+    <PropertyDef name="brokerID">
+      <Property></Property>
+      <Property name="label">经纪公司代码</Property>
+    </PropertyDef>
+    <PropertyDef name="corporation">
+      <Property></Property>
+      <Property name="label">法人代表</Property>
+    </PropertyDef>
+    <PropertyDef name="linkMan">
+      <Property></Property>
+      <Property name="label">联系人</Property>
+    </PropertyDef>
+    <PropertyDef name="fax">
+      <Property></Property>
+      <Property name="label">传真</Property>
+    </PropertyDef>
+    <PropertyDef name="telephone">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="email">
+      <Property></Property>
+      <Property name="label">电子邮件</Property>
+    </PropertyDef>
+    <PropertyDef name="address">
+      <Property></Property>
+      <Property name="label">联系地址</Property>
+    </PropertyDef>
+    <PropertyDef name="zipCode">
+      <Property></Property>
+      <Property name="label">邮政编码</Property>
+    </PropertyDef>
+    <PropertyDef name="website">
+      <Property></Property>
+      <Property name="label">网站地址</Property>
+    </PropertyDef>
+    <PropertyDef name="companyCode">
+      <Property></Property>
+      <Property name="label">企业代码</Property>
+    </PropertyDef>
+    <PropertyDef name="taxNo">
+      <Property></Property>
+      <Property name="label">税务登记号</Property>
+    </PropertyDef>
+    <PropertyDef name="licenseNo">
+      <Property></Property>
+      <Property name="label">营业执照号</Property>
+    </PropertyDef>
+    <PropertyDef name="openDate">
+      <Property></Property>
+      <Property name="label">开户日期</Property>
+    </PropertyDef>
+    <PropertyDef name="cancleDate">
+      <Property></Property>
+      <Property name="label">销户日期</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerFlag">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerDNS">
+      <Property></Property>
+      <Property name="label">访问域名</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerDNS2">
+      <Property></Property>
+      <Property name="label">备份访问域名</Property>
+    </PropertyDef>
+    <PropertyDef name="SMTP">
+      <Property></Property>
+      <Property name="label">电邮服务器地址</Property>
+    </PropertyDef>
+    <PropertyDef name="emailUser">
+      <Property></Property>
+      <Property name="label">电邮用户名</Property>
+    </PropertyDef>
+    <PropertyDef name="emailPassword">
+      <Property></Property>
+      <Property name="label">电邮密码</Property>
+    </PropertyDef>
+    <PropertyDef name="isSMTPLogin">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">SMTP是否需要身份验证</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="$dtSettlement.Trader">
+    <Property name="creationType">com.sfit.model.settlement.Trader</Property>
+    <PropertyDef name="exchangeID">
+      <Property></Property>
+      <Property name="label">交易所代码</Property>
+    </PropertyDef>
+    <PropertyDef name="traderID">
+      <Property></Property>
+      <Property name="label">交易所交易员代码</Property>
+    </PropertyDef>
+    <PropertyDef name="participantID">
+      <Property></Property>
+      <Property name="label">会员代码</Property>
+    </PropertyDef>
+    <PropertyDef name="password">
+      <Property></Property>
+      <Property name="label">密码</Property>
+    </PropertyDef>
+    <PropertyDef name="installCount">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">安装数量</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerID">
+      <Property></Property>
+      <Property name="label">经纪公司代码</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="$dtSettlement.PartBroker">
+    <Property name="creationType">com.sfit.model.settlement.PartBroker</Property>
+    <PropertyDef name="exchangeID">
+      <Property></Property>
+      <Property name="label">交易所代码</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerID">
+      <Property></Property>
+      <Property name="label">经纪公司代码</Property>
+    </PropertyDef>
+    <PropertyDef name="brokerType">
+      <Property></Property>
+      <Property name="label">经纪公司类型</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider('dictionaryManager#loadStaticDict').getResult('BrokerType')}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="participantID">
+      <Property></Property>
+      <Property name="label">会员代码</Property>
+    </PropertyDef>
+    <PropertyDef name="isActive">
+      <Property name="dataType">Integer</Property>
+      <Property name="label">是否活跃</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider('dictionaryManager#loadStaticDict').getResult('IsActive')}</Property>
+      </Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="$dtTrade.CondOrderParam">
+    <Property name="creationType">com.sfit.model.trade.CondOrderParam</Property>
+    <PropertyDef name="brokerID">
+      <Property name="dataType">String</Property>
+      <Property name="label">经纪公司代码</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider('settlement.brokerPR#queryNoSpace').getResult()}</Property>
+        <Property name="keyProperty">brokerID</Property>
+        <Property name="valueProperty">brokerName</Property>
+      </Property>
+      <Validator type="custom">
+        <ClientEvent name="onValidate">commonValidator.checkStringLength(self,arg,10);</ClientEvent>
+        <Property name="name">cvCheckStringLength</Property>
+      </Validator>
+    </PropertyDef>
+    <PropertyDef name="maxInvestorConcurrentAmount">
+      <Property name="dataType">Long</Property>
+      <Property name="label">准许条件单的投资者数量</Property>
+      <Property name="required">true</Property>
+      <Validator type="custom">
+        <ClientEvent name="onValidate">commonValidator.checkNumberLength(self,arg,10,0);</ClientEvent>
+        <Property name="name">cvCheckStringLength</Property>
+      </Validator>
+      <Validator name="validator1" type="custom">
+        <ClientEvent name="onValidate">var data = arg.data;&#xD;
+if(data&lt;0){&#xD;
+	arg.result = {&#xD;
+        text: &quot;数值不能为负数&quot;,&#xD;
+        state: &quot;error&quot;&#xD;
+    };&#xD;
+}&#xD;
+</ClientEvent>
+      </Validator>
+    </PropertyDef>
+    <PropertyDef name="maxInvestorCondOrderAmount">
+      <Property name="dataType">Long</Property>
+      <Property name="label">每个投资者的最大条件单数量</Property>
+      <Property name="required">true</Property>
+      <Validator type="custom">
+        <ClientEvent name="onValidate">commonValidator.checkNumberLength(self,arg,10,0);</ClientEvent>
+        <Property name="name">cvCheckStringLength</Property>
+      </Validator>
+      <Validator name="validator1" type="custom">
+        <ClientEvent name="onValidate">var data = arg.data;&#xD;
+if(data&lt;0){&#xD;
+	arg.result = {&#xD;
+        text: &quot;数值不能为负数&quot;,&#xD;
+        state: &quot;error&quot;&#xD;
+    };&#xD;
+}&#xD;
+</ClientEvent>
+      </Validator>
+    </PropertyDef>
+  </DataType>
+</Model>
