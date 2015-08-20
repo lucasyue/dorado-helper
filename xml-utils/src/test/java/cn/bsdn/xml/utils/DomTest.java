@@ -1,4 +1,4 @@
-package cn.bsdn.xml;
+package cn.bsdn.xml.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,6 +31,7 @@ import org.dom4j.QName;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -42,8 +43,9 @@ import cn.bsdn.dorado.xml.DoradoXmlUtils;
 import cn.bsdn.dorado.xml.EntityVistor;
 import cn.bsdn.utils.FileUtils;
 
-public class DomTest {
-	public static void testDom() {
+public class DomTest{
+	@Test
+	public void testDom() {
 		try {
 			Document doc = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder().parse(DomTest.class.getClassLoader().getResourceAsStream("read.xml"));
@@ -67,18 +69,16 @@ public class DomTest {
 								.getFirstChild().getNodeValue());
 			}
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	@SuppressWarnings("unchecked")
-	public static void testDom4jDom() throws DocumentException, IOException {
+	@Test
+	public void testDom4jDom() throws DocumentException, IOException {
 		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
 		String outFile = "E:/projects/shangqi/xml-utils/src/test1.xml";
 		// 获取文件内容
@@ -126,8 +126,8 @@ public class DomTest {
 		String xml = strWriter.toString();
 		FileUtils.writeContentToFile(xml,outFile);
 	}
-
-	public static void testDom4jSax() throws DocumentException, IOException {
+	@Test
+	public  void testDom4jSax() throws DocumentException, IOException {
 		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
 		String outFile = "E:/projects/shangqi/xml-utils/src/test1.xml";
 		// 获取文件内容
@@ -170,8 +170,8 @@ public class DomTest {
 		writer.flush();
 		writer.close();
 	}
-
-	public static void testStax() throws SAXException, IOException,
+	@Test
+	public  void testStax() throws SAXException, IOException,
 			ParserConfigurationException, TransformerFactoryConfigurationError,
 			TransformerException {
 		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
@@ -202,7 +202,7 @@ public class DomTest {
 	}
 
 	// 使用XMLStream 解析xml文件 （基于遍历的方式）
-	public void test2() throws Exception {
+	@Test public void test2() throws Exception {
 		InputStream is = DoradoXmlUtils.class.getClassLoader().getResourceAsStream(
 				"build.xml"); // 获取xml文件流
 		XMLInputFactory xmlFactory = XMLInputFactory.newInstance();
@@ -226,7 +226,7 @@ public class DomTest {
 		}
 	}
 
-	private static String getFileContent2(String fileName) throws IOException {
+	@Test private static String getFileContent2(String fileName) throws IOException {
 		File f = new File(fileName);
 		FileReader fr = new FileReader(f);
 		// char[]chars=new char[fr.];
