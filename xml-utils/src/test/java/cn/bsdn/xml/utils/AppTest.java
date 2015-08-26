@@ -1,5 +1,7 @@
 package cn.bsdn.xml.utils;
 
+import java.math.BigDecimal;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,6 +15,7 @@ public class AppTest {
 
 	@BeforeClass
 	public static void setUp() {
+		BigDecimal d=new BigDecimal("");
 		System.out.println("beforeClass");
 	}
 	@AfterClass
@@ -29,6 +32,8 @@ public class AppTest {
 	}
 	@Test
 	public void method1() {
+		System.out.println(Long.MAX_VALUE);
+		System.out.println(Integer.MAX_VALUE);
 		System.out.println("method1");
 	}
 
