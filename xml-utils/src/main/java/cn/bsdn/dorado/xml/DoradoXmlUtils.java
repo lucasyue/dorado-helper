@@ -63,7 +63,7 @@ public class DoradoXmlUtils {
 	}
 	private static void compareToAddValidator(String folder, String desiFolder,
 			String fileExt) throws IOException, TransformerFactoryConfigurationError, TransformerException {
-		List<File> fileList = FileUtils.getFiles(folder, fileExt);
+		List<File> fileList = FileUtils.getFiles(folder, fileExt,null);
 		int countFile=0;
 		for (int i = 0; i < fileList.size(); i++) {
 			File f = fileList.get(i);
@@ -103,7 +103,7 @@ public class DoradoXmlUtils {
 		FileUtils.writeContentToFile(newXml, fileOutput,null);
 	}
 	private static void removeNode(String inputFolder,String fileExt,String outputFolder) throws IOException, TransformerFactoryConfigurationError, TransformerException{
-		List<File> fileList = FileUtils.getFiles(inputFolder, fileExt);
+		List<File> fileList = FileUtils.getFiles(inputFolder, fileExt,null);
 		int countFile=0;
 		for (int i = 0; i < fileList.size(); i++) {
 			File f = fileList.get(i);
@@ -183,7 +183,7 @@ public class DoradoXmlUtils {
 	public static Map<String, Map<String, Integer>> getAllDataType(
 			String folder, String ext) {
 		Map<String, Map<String, Integer>> dataTypePropertyMap = new HashMap<String, Map<String, Integer>>();
-		List<File> fileList = FileUtils.getFiles(folder, ext);
+		List<File> fileList = FileUtils.getFiles(folder, ext,null);
 		for (File f : fileList) {
 			Map<String, Map<String, Integer>> dataTypeMap = getDataTypeStringPropertyDefs(f
 					.getAbsolutePath());
