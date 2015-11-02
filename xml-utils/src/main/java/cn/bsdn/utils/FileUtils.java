@@ -172,7 +172,7 @@ public class FileUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "";
+		return null;
 	}
 	public static void writeContentToFile(String content, String file) throws IOException{
 		writeContentToFile(content,file,null);

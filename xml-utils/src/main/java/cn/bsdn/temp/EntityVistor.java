@@ -1,4 +1,4 @@
-package cn.bsdn.dorado.xml;
+package cn.bsdn.temp;
 
 import org.dom4j.Element;
 import org.dom4j.Entity;

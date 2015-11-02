@@ -51,16 +51,24 @@ public class DoradoXmlUtils {
 		// String convertContent=convertBefore(content);
 		// writeContentToFile(convertContent, fileName2);
 		// testStaxDom();
-		String modelfolder = "E:/projects/shangqi/dorado7/dorado7/settle/model";
-		String folder = "E:/projects/shangqi/CTP2_UI/CTP2/src/dorado/";
+		String modelfolder = "E:/projects/shangqi/codeGenerated/dorado7";
+		String folder = "E:/projects/shangqi/workspace/CTP2/src/dorado/com/sfit/dorado/view/epayment2";
 		String folder1 = "E:/projects/shangqi/CTP2_UI/CTP2/src/dorado/com/sfit/dorado/view/account";
 		String folder2="E:/projects/shangqi/CTP2_UI/CTP2/src/dorado/com/sfit/stockopt/dorado/models";
 		String desiFolder = "E:/projects/shangqi/dorado7-gen/";
 		allDataTypePropertyDefs = getAllDataType(modelfolder, ".xml");
 		compareToAddValidator(folder, desiFolder, ".xml");
 		//testSTAX();
-		removeNode(folder,".xml",desiFolder);
+		//removeNode(folder,".xml",desiFolder);
 	}
+	/**比对并为页面添加Validator
+	 * @param folder
+	 * @param desiFolder
+	 * @param fileExt
+	 * @throws IOException
+	 * @throws TransformerFactoryConfigurationError
+	 * @throws TransformerException
+	 */
 	private static void compareToAddValidator(String folder, String desiFolder,
 			String fileExt) throws IOException, TransformerFactoryConfigurationError, TransformerException {
 		List<File> fileList = FileUtils.getFiles(folder, fileExt,null);
@@ -102,6 +110,14 @@ public class DoradoXmlUtils {
 		String newXml = convertAfter(strWriter.toString());
 		FileUtils.writeContentToFile(newXml, fileOutput,null);
 	}
+	/**移除需要忽略的字段上面添加的校验器
+	 * @param inputFolder
+	 * @param fileExt
+	 * @param outputFolder
+	 * @throws IOException
+	 * @throws TransformerFactoryConfigurationError
+	 * @throws TransformerException
+	 */
 	private static void removeNode(String inputFolder,String fileExt,String outputFolder) throws IOException, TransformerFactoryConfigurationError, TransformerException{
 		List<File> fileList = FileUtils.getFiles(inputFolder, fileExt,null);
 		int countFile=0;
@@ -396,7 +412,7 @@ public class DoradoXmlUtils {
 
 	private static String getDataTypeBeanName(Element dataType) {
 		String dataTypeBeanName = null;
-		// 1.get creationType\matchType
+		// 1.get creationType/matchType
 		NodeList dataTypePropertyList = dataType
 				.getElementsByTagName("Property");
 		for (int j = 0; j < dataTypePropertyList.getLength(); j++) {// j
@@ -475,10 +491,13 @@ public class DoradoXmlUtils {
 			});
 			document = builder.parse(source);
 		} catch (SAXException e) {
+			System.out.println(fileName);
 			e.printStackTrace();
 		} catch (IOException e) {
+			System.out.println(fileName);
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
+			System.out.println(fileName);
 			e.printStackTrace();
 		}
 		return document;

@@ -40,7 +40,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import cn.bsdn.dorado.xml.DoradoXmlUtils;
-import cn.bsdn.dorado.xml.EntityVistor;
+import cn.bsdn.temp.EntityVistor;
 import cn.bsdn.utils.FileUtils;
 
 public class DomTest{
@@ -77,10 +77,10 @@ public class DomTest{
 		}
 	}
 	@SuppressWarnings("unchecked")
-	@Test
+	//@Test
 	public void testDom4jDom() throws DocumentException, IOException {
-		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
-		String outFile = "E:/projects/shangqi/xml-utils/src/test1.xml";
+		String fileName = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/main/java/Branch.view.xml";
+		String outFile = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/test1.xml";
 		// 获取文件内容
 		String content = FileUtils.getFileContent(fileName);
 		org.dom4j.Document doc = DocumentHelper.parseText(content);
@@ -128,8 +128,8 @@ public class DomTest{
 	}
 	@Test
 	public  void testDom4jSax() throws DocumentException, IOException {
-		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
-		String outFile = "E:/projects/shangqi/xml-utils/src/test1.xml";
+		String fileName = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/main/java/1/Branch.view.xml";
+		String outFile = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/test1.xml";
 		// 获取文件内容
 		SAXReader saxReader = new SAXReader();
 		org.dom4j.Document doc = saxReader.read(new File(fileName));
@@ -170,11 +170,12 @@ public class DomTest{
 		writer.flush();
 		writer.close();
 	}
-	@Test
+	//@Test
 	public  void testStax() throws SAXException, IOException,
 			ParserConfigurationException, TransformerFactoryConfigurationError,
 			TransformerException {
-		String fileName = "E:/projects/shangqi/xml-utils/src/main/java/Branch.view.xml";
+		//E:\projects\shangqi\dorado-xml-utils\xml-utils\src\main\java\Broker.model.xml
+		String fileName = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/main/java/Branch.view.xml";
 		InputStream is = new FileInputStream(fileName);
 		Document document = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder().parse(is);
@@ -187,7 +188,7 @@ public class DomTest{
 		Transformer tran = TransformerFactory.newInstance().newTransformer();
 		tran.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 		tran.setOutputProperty(OutputKeys.INDENT, "yes");
-		String fileOutput = "E:/projects/shangqi/xml-utils/src/test2.xml";
+		String fileOutput = "E:/projects/shangqi/dorado-xml-utils/xml-utils/src/test2.xml";
 		// Result consoleResult = new StreamResult(System.out);
 		File fo = new File(fileOutput);
 		if (!fo.exists()) {
@@ -202,7 +203,8 @@ public class DomTest{
 	}
 
 	// 使用XMLStream 解析xml文件 （基于遍历的方式）
-	@Test public void test2() throws Exception {
+	//@Test 
+	public void test2() throws Exception {
 		InputStream is = DoradoXmlUtils.class.getClassLoader().getResourceAsStream(
 				"build.xml"); // 获取xml文件流
 		XMLInputFactory xmlFactory = XMLInputFactory.newInstance();
@@ -226,7 +228,8 @@ public class DomTest{
 		}
 	}
 
-	@Test private static String getFileContent2(String fileName) throws IOException {
+	//@Test 
+	private static String getFileContent2(String fileName) throws IOException {
 		File f = new File(fileName);
 		FileReader fr = new FileReader(f);
 		// char[]chars=new char[fr.];
