@@ -53,8 +53,6 @@ public class DoradoXmlUtils {
 		// testStaxDom();
 		String modelfolder = "E:/projects/shangqi/codeGenerated/dorado7";
 		String folder = "E:/projects/shangqi/workspace/CTP2/src/dorado/com/sfit/dorado/view/epayment2";
-		String folder1 = "E:/projects/shangqi/CTP2_UI/CTP2/src/dorado/com/sfit/dorado/view/account";
-		String folder2="E:/projects/shangqi/CTP2_UI/CTP2/src/dorado/com/sfit/stockopt/dorado/models";
 		String desiFolder = "E:/projects/shangqi/dorado7-gen/";
 		allDataTypePropertyDefs = getAllDataType(modelfolder, ".xml");
 		compareToAddValidator(folder, desiFolder, ".xml");
